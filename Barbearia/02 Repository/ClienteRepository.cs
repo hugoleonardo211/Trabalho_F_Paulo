@@ -9,8 +9,7 @@ using System.Threading.Tasks;
 
 namespace Barbearia._02_Repository
 {
-    public class ClienteRepository
-    {
+    
         public class ClienteRepository
         {
             private readonly string ConnectionString;
@@ -46,4 +45,4 @@ namespace Barbearia._02_Repository
             }
         }
     }
-}
+

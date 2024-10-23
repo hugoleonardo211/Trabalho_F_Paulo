@@ -10,10 +10,10 @@ namespace Barbearia._01_Service
 {
     public class ProdutosService
     {
-        public ProdutosRepository _repository { get; set; }
+        public ProdutoRepository _repository { get; set; }
         public ProdutosService(string _config)
         {
-            _repository = new ProdutosRepository(_config);
+            _repository = new ProdutoRepository(_config);
         }
         public void Adicionar(Produtos p)
         {
@@ -39,4 +39,4 @@ namespace Barbearia._01_Service
         }
     }
 }
-}
+

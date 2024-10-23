@@ -12,47 +12,47 @@ using System.Threading.Tasks;
 
 namespace Barbearia._00_Controller
 {
-    public class TipoAgendController
-    {
+    
         [ApiController]
         [Route("[controller]")]
-        public class TipoAgendcontroller : ControllerBase
+        public class MetodPagcontroller : ControllerBase
         {
-            private readonly TipoAgendService _service;
+            private readonly MetodPagService _service;
             private readonly IMapper _mapper;
-            public TipoAgendcontroller(IConfiguration config, IMapper mapper)
+            public MetodPagcontroller(IConfiguration config, IMapper mapper)
             {
                 string _config = config.GetConnectionString("DefaultConnection");
-                _service = new TipoAgendService(_config);
+                _service = new MetodPagService(_config);
                 _mapper = mapper;
             }
-            [HttpPost("adicionar-TipoAgend")]
-            public void Adicionar(CreateTipoAgendDTO TipoAgendDTO)
+            [HttpPost("adicionar-MetodPag")]
+            public void Adicionar(CreateMetodPagDTO MetodPagDTO)
             {
-                TipoAgend tp = _mapper.Map<TipoAgend>(TipoAgendDTO);
-                _service.Adicionar(tp);
+                MetodPag mp = _mapper.Map<MetodPag>(MetodPagDTO);
+                _service.Adicionar(mp);
             }
-            [HttpGet("listar-TipoAgend")]
-            public List<TipoAgend> Listar()
+            [HttpGet("listar-MetodPag")]
+            public List<MetodPag> Listar()
             {
                 return _service.Listar();
             }
-            [HttpPut("editar-TipoAgend")]
-            public void Editar(TipoAgend tp)
+            [HttpPut("editar-MetodPag")]
+            public void Editar(MetodPag mp)
             {
-                _service.Editar(tp);
+                _service.Editar(mp);
             }
-            [HttpDelete("deletar-TipoAgend")]
+            [HttpDelete("deletar-MetodPag")]
             public void Deletar(int id)
             {
                 _service.Remover(id);
             }
-            [HttpGet("Buscar-TipoAgend-por-Id")]
-            public TipoAgend BuscarPorId(int id)
+            [HttpGet("Buscar-MetodPag-por-Id")]
+            public MetodPag BuscarPorId(int id)
             {
                 return _service.BuscarPorId(id);
             }
         }
     }
-}
-}
+
+
+

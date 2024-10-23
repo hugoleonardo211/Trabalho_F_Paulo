@@ -1,4 +1,5 @@
 ﻿using Barbearia._03_Entidades;
+using Dapper.Contrib.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -8,41 +9,40 @@ using System.Threading.Tasks;
 
 namespace Barbearia._02_Repository
 {
-    public class MetodPagRepository
-    {
-        public class AgendamentoRepository
+   
+        public class MetodPagRepository
         {
             private readonly string ConnectionString;
-            public AgendamentoRepository(string connectioString)
+            public MetodPagRepository(string connectioString)
             {
                 ConnectionString = connectioString;
             }
-            public void Adicionar(Agendamento agendamento)
+            public void Adicionar(MetodPag mp)
             {
                 using var connection = new SQLiteConnection(ConnectionString);
-                connection.Insert<TipoAgend>(agendamento);
+                connection.Insert<MetodPag>(mp);
             }
             public void Remover(int id)
             {
                 using var connection = new SQLiteConnection(ConnectionString);
-                Produtos produtos = BuscarPorId(id);
-                connection.Delete<TipoAgend>(agendamento);
+                MetodPag mp = BuscarPorId(id);
+                connection.Delete<MetodPag>(mp);
             }
-            public void Editar(Agendamento agendamento)
+            public void Editar(MetodPag mp)
             {
                 using var connection = new SQLiteConnection(ConnectionString);
-                connection.Update<Agendamento>(agendamento);
+                connection.Update<MetodPag>(mp);
             }
-            public List<Agendamento> Listar()
+            public List<MetodPag> Listar()
             {
                 using var connection = new SQLiteConnection(ConnectionString);
-                return connection.GetAll<Agendamento>().ToList();
+                return connection.GetAll<MetodPag>().ToList();
             }
-            public Produtos BuscarPorId(int id)
+            public MetodPag BuscarPorId(int id)
             {
                 using var connection = new SQLiteConnection(ConnectionString);
-                return connection.Get<Agendamento>(id);
+                return connection.Get<MetodPag>(id);
             }
         }
     }
-}
+

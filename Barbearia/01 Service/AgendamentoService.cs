@@ -38,7 +38,5 @@ namespace Barbearia._01_Service
         {
             _repository.Editar(editAgendamento);
         }
-
-       
-   }
+    }
 }

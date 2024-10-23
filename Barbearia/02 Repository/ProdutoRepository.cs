@@ -11,8 +11,7 @@ namespace Barbearia._02_Repository
 {
     public class ProdutoRepository
     {
-        public class ProdutosRepository
-        {
+        
             private readonly string ConnectionString;
             public ProdutosRepository(string connectioString)
             {
@@ -46,4 +45,4 @@ namespace Barbearia._02_Repository
             }
         }
     }
-}
+

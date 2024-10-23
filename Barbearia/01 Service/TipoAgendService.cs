@@ -29,7 +29,7 @@ namespace Barbearia._01_Service
         {
             return _repository.Listar();
         }
-        public Produtos BuscarPorId(int id)
+        public TipoAgend BuscarPorId(int id)
         {
             return _repository.BuscarPorId(id);
         }

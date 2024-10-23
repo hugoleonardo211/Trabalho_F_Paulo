@@ -12,47 +12,44 @@ using System.Threading.Tasks;
 
 namespace Barbearia._00_Controller
 {
-    public class ClienteController
-    {
+   
         [ApiController]
         [Route("[controller]")]
-        public class Clientecontroller : ControllerBase
+        public class TipoAgendcontroller : ControllerBase
         {
-            private readonly ClienteService _service;
+            private readonly TipoAgendService _service;
             private readonly IMapper _mapper;
-            public Clientecontroller(IConfiguration config, IMapper mapper)
+            public TipoAgendcontroller(IConfiguration config, IMapper mapper)
             {
                 string _config = config.GetConnectionString("DefaultConnection");
-                _service = new ClienteService(_config);
+                _service = new TipoAgendService(_config);
                 _mapper = mapper;
             }
-            [HttpPost("adicionar-Cliente")]
-            public void Adicionar(Cliente agendamentoDTO)
+            [HttpPost("adicionar-TipoAgend")]
+            public void Adicionar(CreateTipoAgendDTO TipoAgendDTO)
             {
-                Cliente cliente = _mapper.Map<Cliente>(agendamentoDTO);
-                _service.Adicionar(cliente);
+                TipoAgend tp = _mapper.Map<TipoAgend>(TipoAgendDTO);
+                _service.Adicionar(tp);
             }
-            [HttpGet("listar-agendamento")]
-            public List<Cliente> Listar()
+            [HttpGet("listar-TipoAgend")]
+            public List<TipoAgend> Listar()
             {
                 return _service.Listar();
             }
-            [HttpPut("editar-Agendamento")]
-            public void Editar(Cliente c)
+            [HttpPut("editar-TipoAgend")]
+            public void Editar(TipoAgend tp)
             {
-                _service.Editar(c);
+                _service.Editar(tp);
             }
-            [HttpDelete("deletar-Cliente")]
+            [HttpDelete("deletar-TipoAgend")]
             public void Deletar(int id)
             {
                 _service.Remover(id);
             }
-            [HttpGet("Buscar-Cliente-por-Id")]
-            public Cliente BuscarPorId(int id)
+            [HttpGet("Buscar-TipoAgend-por-Id")]
+            public TipoAgend BuscarPorId(int id)
             {
                 return _service.BuscarPorId(id);
             }
         }
     }
-}
-

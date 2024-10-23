@@ -1,58 +1,57 @@
 ﻿using AutoMapper;
 using Barbearia._01_Service;
-using Barbearia._03_Entidades;
 using Barbearia._03_Entidades.DTO;
+using Barbearia._03_Entidades;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Barbearia._00_Controller
 {
-    public class AgendamentoController
-    {
+    
         [ApiController]
         [Route("[controller]")]
-        public class Agendamentocontroller : ControllerBase
+        public class Clientecontroller : ControllerBase
         {
-            private readonly AgendamentoService _service;
+            private readonly ClienteService _service;
             private readonly IMapper _mapper;
-            public Agendamentocontroller(IConfiguration config, IMapper mapper)
+            public Clientecontroller(IConfiguration config, IMapper mapper)
             {
                 string _config = config.GetConnectionString("DefaultConnection");
-                _service = new AgendamentoService(_config);
+                _service = new ClienteService(_config);
                 _mapper = mapper;
             }
-            [HttpPost("adicionar-Agendamento")]
-            public void Adicionar(CreateAgendamentoDTO agendamentoDTO)
+            [HttpPost("adicionar-Cliente")]
+            public void Adicionar(Cliente agendamentoDTO)
             {
-                Agendamento agendamento = _mapper.Map<Agendamento>(agendamentoDTO);
-                _service.Adicionar(agendamento);
+                Cliente cliente = _mapper.Map<Cliente>(agendamentoDTO);
+                _service.Adicionar(cliente);
             }
             [HttpGet("listar-agendamento")]
-            public List<Agendamento> Listar()
+            public List<Cliente> Listar()
             {
                 return _service.Listar();
             }
             [HttpPut("editar-Agendamento")]
-            public void Editar(Agendamento a)
+            public void Editar(Cliente c)
             {
-                _service.Editar(a);
+                _service.Editar(c);
             }
-            [HttpDelete("deletar-Agendamento")]
+            [HttpDelete("deletar-Cliente")]
             public void Deletar(int id)
             {
                 _service.Remover(id);
             }
-            [HttpGet("Buscar-Agendamento-por-Id")]
-            public Agendamento BuscarPorId(int id)
+            [HttpGet("Buscar-Cliente-por-Id")]
+            public Cliente BuscarPorId(int id)
             {
                 return _service.BuscarPorId(id);
             }
         }
     }
-}
+
+

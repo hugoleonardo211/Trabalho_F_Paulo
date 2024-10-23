@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Barbearia._03_Entidades.DTO
 {
-    internal class CreateMetodPagDTO
+    public class CreateMetodPagDTO
     {
+        public double pix { get; set; }
+        public double debito { get; set; }
+        public double credito { get; set; }
+        public double dinheiro { get; set; }
     }
 }

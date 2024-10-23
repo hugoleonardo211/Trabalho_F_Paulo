@@ -12,8 +12,7 @@ using System.Threading.Tasks;
 
 namespace Barbearia._00_Controller
 {
-    public class FuncionariosController
-    {
+  
         [ApiController]
         [Route("[controller]")]
         public class Funcinarioscontroller : ControllerBase
@@ -54,5 +53,5 @@ namespace Barbearia._00_Controller
             }
         }
     }
-}
+
 
