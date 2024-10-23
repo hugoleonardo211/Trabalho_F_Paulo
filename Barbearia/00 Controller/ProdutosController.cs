@@ -14,16 +14,16 @@ namespace Barbearia._00_Controller
 {
     public class ProdutosController
     {
-        [Trabalho_F_Paulo]
+        [ApiController]
         [Route("[controller]")]
         public class Produtocontroller : ControllerBase
         {
-            private readonly ProdutoService _service;
+            private readonly ProdutosService _service;
             private readonly IMapper _mapper;
             public Produtocontroller(IConfiguration config, IMapper mapper)
             {
                 string _config = config.GetConnectionString("DefaultConnection");
-                _service = new ProdutoService(_config);
+                _service = new ProdutosService(_config);
                 _mapper = mapper;
             }
             [HttpPost("adicionar-Produto")]

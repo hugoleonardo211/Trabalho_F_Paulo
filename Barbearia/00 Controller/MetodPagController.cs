@@ -26,29 +26,29 @@ namespace Barbearia._00_Controller
                 _service = new MetodPagService(_config);
                 _mapper = mapper;
             }
-            [HttpPost("adicionar-Funcionarios")]
-            public void Adicionar(CreateFuncionariosDTO funcionariosDTO)
+            [HttpPost("adicionar-MetodPag")]
+            public void Adicionar(CreateMetodPagDTO MetodPagDTO)
             {
-                Funcionarios funcionarios = _mapper.Map<Funcionarios>(funcionariosDTO);
-                _service.Adicionar(funcionarios);
+                MetodPag mp = _mapper.Map<MetodPag>(MetodPagDTO);
+                _service.Adicionar(mp);
             }
-            [HttpGet("listar-Funcionarios")]
-            public List<Funcionarios> Listar()
+            [HttpGet("listar-MetodPag")]
+            public List<MetodPag> Listar()
             {
                 return _service.Listar();
             }
-            [HttpPut("editar-Funcionarios")]
-            public void Editar(Funcionarios f)
+            [HttpPut("editar-MetodPag")]
+            public void Editar(MetodPag mp)
             {
-                _service.Editar(f);
+                _service.Editar(mp);
             }
-            [HttpDelete("deletar-Funcionarios")]
+            [HttpDelete("deletar-MetodPag")]
             public void Deletar(int id)
             {
                 _service.Remover(id);
             }
-            [HttpGet("Buscar-Funcionarios-por-Id")]
-            public Funcionarios BuscarPorId(int id)
+            [HttpGet("Buscar-MetodPag-por-Id")]
+            public MetodPag BuscarPorId(int id)
             {
                 return _service.BuscarPorId(id);
             }
