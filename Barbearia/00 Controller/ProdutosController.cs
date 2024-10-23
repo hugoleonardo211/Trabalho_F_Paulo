@@ -27,7 +27,7 @@ namespace Barbearia._00_Controller
                 _mapper = mapper;
             }
             [HttpPost("adicionar-Produto")]
-            public void Adicionar(CreateProdutosDTO produtoDTO)
+            public void Adicionar(CreateProdutoDTO produtoDTO)
             {
                 Produtos produto = _mapper.Map<Produtos>(produtoDTO);
                 _service.Adicionar(produto);
