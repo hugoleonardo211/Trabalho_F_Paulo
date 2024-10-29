@@ -1,4 +1,5 @@
-﻿using Barbearia._03_Entidades;
+﻿using Barbearia._02_Repository.Interfaces;
+using Barbearia._03_Entidades;
 using Dapper.Contrib.Extensions;
 using System;
 using System.Collections.Generic;
@@ -9,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace Barbearia._02_Repository
 {
-    public class ProdutoRepository
+    public class ProdutoRepository : IProdutoRepository
     {
         
             private readonly string ConnectionString;
-            public ProdutosRepository(string connectioString)
+            public ProdutoRepository(string connectioString)
             {
                 ConnectionString = connectioString;
             }

@@ -1,4 +1,5 @@
-﻿using Barbearia._03_Entidades;
+﻿using Barbearia._02_Repository.Interfaces;
+using Barbearia._03_Entidades;
 using Dapper.Contrib.Extensions;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Barbearia._02_Repository
 {
-    public class AgendamentoRepository
+    public class AgendamentoRepository : IAgendamentoRepository
     {
         private readonly string ConnectionString;
         public AgendamentoRepository(string connectioString)

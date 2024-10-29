@@ -1,4 +1,6 @@
-﻿using Barbearia._02_Repository;
+﻿using Barbearia._01_Service.Interfaces;
+using Barbearia._02_Repository;
+using Barbearia._02_Repository.Interfaces;
 using Barbearia._03_Entidades;
 using System;
 using System.Collections.Generic;
@@ -8,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Barbearia._01_Service
 {
-    public class MetodPagService
+    public class MetodPagService : IMetodPagService
     {
-        public MetodPagRepository _repository { get; set; }
+        public IMetodPagRepository _repository { get; set; }
         public MetodPagService(string _config)
         {
             _repository = new MetodPagRepository(_config);

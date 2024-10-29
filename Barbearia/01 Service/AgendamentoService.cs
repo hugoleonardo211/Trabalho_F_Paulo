@@ -1,6 +1,9 @@
-﻿using Barbearia._02_Repository;
+﻿using Barbearia._01_Service.Interfaces;
+using Barbearia._02_Repository;
+using Barbearia._02_Repository.Interfaces;
 using Barbearia._03_Entidades;
 using Barbearia._03_Entidades.DTO;
+using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +12,10 @@ using System.Threading.Tasks;
 
 namespace Barbearia._01_Service
 {
-    public class AgendamentoService
+    public class AgendamentoService : IAgendamentoService
     {
-        public AgendamentoRepository _repository { get; set; }
+
+        public IAgendamentoRepository _repository { get; set; }
         public AgendamentoService(string _config)
         {
             _repository = new AgendamentoRepository(_config);

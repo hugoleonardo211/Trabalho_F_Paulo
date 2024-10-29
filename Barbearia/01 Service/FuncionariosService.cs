@@ -1,4 +1,5 @@
-﻿using Barbearia._02_Repository;
+﻿using Barbearia._01_Service.Interfaces;
+using Barbearia._02_Repository;
 using Barbearia._03_Entidades;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Barbearia._01_Service
 {
-    public class FuncionariosService
+    public class FuncionariosService : IFuncionariosService
     {
         public FuncionariosRepository _repository { get; set; }
         public FuncionariosService(string _config)

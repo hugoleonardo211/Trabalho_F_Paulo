@@ -1,4 +1,5 @@
-﻿using Barbearia._02_Repository;
+﻿using Barbearia._01_Service.Interfaces;
+using Barbearia._02_Repository;
 using Barbearia._03_Entidades;
 using System;
 using System.Collections.Generic;
@@ -8,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace Barbearia._01_Service
 {
-    public class ClienteService
+    public class ClienteService : IClienteService
     {
-        public ClienteRepository _repository { get; set; }
+        public IClienteService _repository { get; set; }
         public ClienteService(string _config)
         {
-            _repository = new ClienteRepository(_config);
+            _repository = new ClienteService(_config);
         }
         public void Adicionar(Cliente cliente)
         {

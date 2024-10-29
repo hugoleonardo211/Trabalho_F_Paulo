@@ -1,4 +1,5 @@
-﻿using Barbearia._02_Repository;
+﻿using Barbearia._01_Service.Interfaces;
+using Barbearia._02_Repository;
 using Barbearia._03_Entidades;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Barbearia._01_Service
 {
-    public class TipoAgendService
+    public class TipoAgendService : ITipoAgendService
     {
         public TipoAgendRepository _repository { get; set; }
         public TipoAgendService(string _config)
