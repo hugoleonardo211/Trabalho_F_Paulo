@@ -14,7 +14,7 @@ using Barbearia._01_Service.Interfaces;
 namespace Barbearia._00_Controller
 {
   
-        [ApiController]
+        [ApiController] 
         [Route("[controller]")]
         public class Funcinarioscontroller : ControllerBase
         {
@@ -50,7 +50,7 @@ namespace Barbearia._00_Controller
             [HttpGet("Buscar-Funcionarios-por-Id")]
             public Funcionarios BuscarPorId(int id)
             {
-                return _service.BuscarPorId(id);
+               return  _service.BuscarPorId(id);
             }
         }
     }

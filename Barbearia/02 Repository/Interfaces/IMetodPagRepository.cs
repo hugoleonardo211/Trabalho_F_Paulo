@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Barbearia._02_Repository.Interfaces
 {
-    internal interface IMetodPagRepository
+    public interface IMetodPagRepository
     {
         void Adicionar(MetodPag mp);
 

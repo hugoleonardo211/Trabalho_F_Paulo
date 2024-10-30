@@ -12,5 +12,7 @@ namespace Barbearia._01_Service.Interfaces
         void Adicionar(Funcionarios f);
         void Remover(int id);
         List<Funcionarios> Listar();
+        void Editar(Funcionarios f);
+        Funcionarios BuscarPorId(int id);
     }
 }

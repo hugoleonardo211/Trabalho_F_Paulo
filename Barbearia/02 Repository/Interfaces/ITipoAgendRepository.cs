@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Barbearia._02_Repository.Interfaces
 {
-    internal interface ITipoAgendRepository
+    public interface ITipoAgendRepository
     {
         void Adicionar(TipoAgend tipoAgend);
 

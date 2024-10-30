@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Barbearia._02_Repository.Interfaces
 {
-    internal interface IFuncionariosRepository
+    public interface IFuncionariosRepository
     {
         void Adicionar(Funcionarios funcionarios);
 

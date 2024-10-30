@@ -1,5 +1,6 @@
 ﻿using Barbearia._01_Service.Interfaces;
 using Barbearia._02_Repository;
+using Barbearia._02_Repository.Interfaces;
 using Barbearia._03_Entidades;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace Barbearia._01_Service
 {
     public class ProdutosService : IProdutosService
     {
-        public ProdutoRepository _repository { get; set; }
+        public IProdutoRepository _repository { get; set; }
         public ProdutosService(string _config)
         {
             _repository = new ProdutoRepository(_config);
