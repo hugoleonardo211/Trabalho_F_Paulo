@@ -13,9 +13,9 @@ namespace Barbearia._01_Service
     public class MetodPagService : IMetodPagService
     {
         public IMetodPagRepository _repository { get; set; }
-        public MetodPagService(string _config)
+        public MetodPagService(IMetodPagRepository repository)
         {
-            _repository = new MetodPagRepository(_config);
+            _repository = repository;
         }
         public void Adicionar(MetodPag metodpag)
         {

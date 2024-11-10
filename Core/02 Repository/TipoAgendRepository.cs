@@ -1,6 +1,7 @@
 ﻿using Barbearia._02_Repository.Interfaces;
 using Barbearia._03_Entidades;
 using Dapper.Contrib.Extensions;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -13,9 +14,9 @@ namespace Barbearia._02_Repository
         public class TipoAgendRepository : ITipoAgendRepository
     {
             private readonly string ConnectionString;
-            public TipoAgendRepository(string connectioString)
+            public TipoAgendRepository(IConfiguration config)
             {
-                ConnectionString = connectioString;
+                ConnectionString = config.GetConnectionString("DefaultConnection");
             }
             public void Adicionar(TipoAgend tipoAgend)
             {

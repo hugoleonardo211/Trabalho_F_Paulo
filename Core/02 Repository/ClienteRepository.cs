@@ -1,6 +1,7 @@
 ﻿using Barbearia._02_Repository.Interfaces;
 using Barbearia._03_Entidades;
 using Dapper.Contrib.Extensions;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -14,9 +15,9 @@ namespace Barbearia._02_Repository
         public class ClienteRepository : IClienteRepository
     {
             private readonly string ConnectionString;
-            public ClienteRepository(string connectioString)
+            public ClienteRepository(IConfiguration config)
             {
-                ConnectionString = connectioString;
+                ConnectionString = config.GetConnectionString("DefaultConnection"); 
             }
             public void Adicionar(Cliente cliente)
             {

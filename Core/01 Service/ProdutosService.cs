@@ -13,9 +13,9 @@ namespace Barbearia._01_Service
     public class ProdutosService : IProdutosService
     {
         public IProdutoRepository _repository { get; set; }
-        public ProdutosService(string _config)
+        public ProdutosService(IProdutoRepository repository)
         {
-            _repository = new ProdutoRepository(_config);
+            _repository = repository;
         }
         public void Adicionar(Produtos p)
         {

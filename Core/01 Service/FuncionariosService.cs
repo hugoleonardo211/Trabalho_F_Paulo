@@ -13,9 +13,9 @@ namespace Barbearia._01_Service
     public class FuncionariosService : IFuncionariosService
     {
         public IFuncionariosRepository _repository { get; set; }
-        public FuncionariosService(string _config)
+        public FuncionariosService(IFuncionariosRepository repository)
         {
-            _repository = new FuncionariosRepository(_config);
+            _repository = repository;
         }
         public void Adicionar(Funcionarios f)
         {

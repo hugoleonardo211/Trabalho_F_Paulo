@@ -13,9 +13,9 @@ namespace Barbearia._01_Service
     public class TipoAgendService : ITipoAgendService
     {
         public ITipoAgendRepository _repository { get; set; }
-        public TipoAgendService(string _config)
+        public TipoAgendService(ITipoAgendRepository repository)
         {
-            _repository = new TipoAgendRepository(_config);
+            _repository = repository;
         }
         public void Adicionar(TipoAgend tipoagend)
         {

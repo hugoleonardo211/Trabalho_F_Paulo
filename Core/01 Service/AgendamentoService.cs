@@ -16,9 +16,9 @@ namespace Barbearia._01_Service
     {
 
         public IAgendamentoRepository _repository { get; set; }
-        public AgendamentoService(string _config)
+        public AgendamentoService(IAgendamentoRepository repository)
         {
-            _repository = new AgendamentoRepository(_config);
+            _repository = repository;
         }
         public void Adicionar(Agendamento agendamento)
         {

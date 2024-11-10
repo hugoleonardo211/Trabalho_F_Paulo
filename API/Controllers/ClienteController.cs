@@ -20,37 +20,109 @@ namespace Barbearia._00_Controller
         {
             private readonly IClienteService _service;
             private readonly IMapper _mapper;
-            public Clientecontroller(IConfiguration config, IMapper mapper)
+            public Clientecontroller(IConfiguration config, IMapper mapper, IClienteService service)
             {
                 string _config = config.GetConnectionString("DefaultConnection");
-                _service = new ClienteService(_config);
+                _service = service;
                 _mapper = mapper;
             }
+
+
+            /// <summary>
+            /// endpoint para adicionar um Cliente novo no banco de dados
+            /// </summary>
+            /// <returns></returns>
             [HttpPost("adicionar-Cliente")]
-            public void Adicionar(Cliente agendamentoDTO)
+            public IActionResult Adicionar(Cliente agendamentoDTO)
+            {
+            try
             {
                 Cliente cliente = _mapper.Map<Cliente>(agendamentoDTO);
                 _service.Adicionar(cliente);
+                return Ok();
             }
-            [HttpGet("listar-agendamento")]
+            catch (Exception erro)
+            {
+                return BadRequest($"erro ao adicionar {erro.Message}");
+            }
+            }
+
+
+            /// <summary>
+        /// endpoint para listar todos os Cliente do banco de dados
+        /// </summary>
+        /// <returns></returns>
+            [HttpGet("listar-Cliente")]
             public List<Cliente> Listar()
+            {
+            try
             {
                 return _service.Listar();
             }
-            [HttpPut("editar-Agendamento")]
-            public void Editar(Cliente c)
+            catch (Exception)
+            {
+
+                throw new Exception("erro ao listar");
+            }
+                
+            }
+
+
+            /// <summary>
+        /// endpoint para editar uma Cliente novo no banco de dados
+        /// </summary>
+        /// <returns></returns>
+            [HttpPut("editar-Cliente")]
+            public IActionResult Editar(Cliente c)
+            {
+            try
             {
                 _service.Editar(c);
+                return Ok();
             }
+            catch (Exception erro)
+            {
+
+                return BadRequest($"erro ao editar {erro.Message}");
+            }
+            }
+
+            /// <summary>
+        /// endpoint para deletar um Cliente no banco de dados
+        /// </summary>
+        /// <returns></returns>
             [HttpDelete("deletar-Cliente")]
-            public void Deletar(int id)
+            public IActionResult Deletar(int id)
+            {
+            try
             {
                 _service.Remover(id);
+                return Ok();
             }
+            catch (Exception erro)
+            {
+
+                return BadRequest($"erro ao deletar {erro.Message}");
+            }
+                
+            }
+
+            /// <summary>
+        /// endpoint para buscar um Cliente por id
+        /// </summary>
+        /// <returns></returns>
             [HttpGet("Buscar-Cliente-por-Id")]
             public Cliente BuscarPorId(int id)
             {
+            try
+            {
                 return _service.BuscarPorId(id);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("erro ao buscar");
+            }
             }
         }
     }
