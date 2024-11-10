@@ -8,6 +8,6 @@ namespace Barbearia._02_Repository.Data
 {
     public class InicializadorBd
     {
-        private const string ConnectionString = "Data Source="
+        private const string ConnectionString = "Data Source=";
     }
 }
